@@ -32,3 +32,19 @@ function outer(){
 let innerFunc=outer();
 console.log(innerFunc);
 innerFunc();
+
+function fetchData(callback){
+    setTimeout(()=>{
+        let data="data fetched";
+        callback(data,null);
+    },5000);
+}
+
+function handleData(data,error){
+    if(error){
+        console.log("Error:",error);
+    }else{
+        console.log("Success:",data);
+    }
+}
+fetchData(handleData);
